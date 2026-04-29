@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  # PHP Apache Web Server
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: voting_web
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./php.ini:/usr/local/etc/php/php.ini
+    environment:
+      - PHP_DATE_TIMEZONE=UTC
+      - DB_HOST=db
+      - DB_NAME=voting_db
+      - DB_USER=root
+      - DB_PASS=root
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - voting_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/index.php"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # MySQL Database Server
+  db:
+    image: mysql:8.0
+    container_name: voting_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: voting_db
+      MYSQL_USER: voting_user
+      MYSQL_PASSWORD: voting_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    networks:
+      - voting_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # phpMyAdmin for database management
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: voting_phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - db
+    networks:
+      - voting_network
+
+volumes:
+  db_data:
+
+networks:
+  voting_network:
+    driver: bridge

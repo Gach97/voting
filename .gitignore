@@ -1,0 +1,36 @@
+# Environment and system files
+.env
+.env.local
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# PHP
+vendor/
+composer.lock
+
+# Node (if using build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Database
+*.sql.bak
+*.db
+
+# Temporary files
+/tmp/*
+*.tmp
+
+# Docker
+.dockerignore
+
+# OS specific
+Thumbs.db
+.directory

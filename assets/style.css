@@ -1,0 +1,315 @@
+/* Voting System Custom Styles */
+
+:root {
+    --primary-color: #1a3c6e;
+    --secondary-color: #0f3460;
+    --accent-color: #16a085;
+    --danger-color: #e74c3c;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    min-height: 100vh;
+    color: #ecf0f1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Glassmorphism Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Navigation Bar */
+.navbar-dark {
+    background: linear-gradient(135deg, rgba(26, 60, 110, 0.8), rgba(15, 52, 96, 0.8)) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #16a085 !important;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0f2851;
+    border-color: #0f2851;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(26, 60, 110, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Outline Buttons */
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-info {
+    color: #3498db;
+    border-color: #3498db;
+}
+
+.btn-outline-info:hover {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.btn-outline-danger {
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+/* Forms */
+.form-control,
+.form-select {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ecf0f1;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(26, 60, 110, 0.25);
+    color: #ecf0f1;
+}
+
+.form-label {
+    color: #bdc3c7;
+    font-weight: 500;
+}
+
+/* Candidate Cards */
+.candidate-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.candidate-card:hover .card {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(22, 160, 133, 0.2);
+    border-color: var(--accent-color);
+}
+
+.candidate-card .card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.candidate-card .card:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.candidate-card input[type="radio"]:checked ~ .card,
+.candidate-card .card {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.candidate-card input[type="radio"]:checked + .card {
+    border-color: var(--primary-color);
+    background: rgba(26, 60, 110, 0.15);
+}
+
+.card-title {
+    color: #16a085;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #bdc3c7;
+}
+
+/* Tables */
+.table-dark {
+    background-color: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-dark th {
+    color: var(--primary-color);
+    border-color: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.table-dark td {
+    color: #ecf0f1;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-dark tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-success {
+    background-color: rgba(22, 160, 133, 0.15) !important;
+}
+
+.table-success td {
+    color: #16a085;
+}
+
+/* Alerts */
+.alert {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ecf0f1;
+}
+
+.alert-success {
+    background: rgba(22, 160, 133, 0.15);
+    border-color: rgba(22, 160, 133, 0.3);
+}
+
+.alert-danger {
+    background: rgba(231, 76, 60, 0.15);
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+.alert-info {
+    background: rgba(52, 152, 219, 0.15);
+    border-color: rgba(52, 152, 219, 0.3);
+}
+
+.alert-warning {
+    background: rgba(241, 196, 15, 0.15);
+    border-color: rgba(241, 196, 15, 0.3);
+}
+
+/* Progress Bars */
+.progress {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-bar.bg-success {
+    background: linear-gradient(90deg, #16a085, #27ae60) !important;
+}
+
+.progress-bar.bg-primary {
+    background: linear-gradient(90deg, var(--primary-color), #3498db) !important;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background: rgba(26, 60, 110, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-item {
+    color: #ecf0f1;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+.dropdown-item.text-danger:hover {
+    background-color: rgba(231, 76, 60, 0.2);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, rgba(26, 60, 110, 0.6), rgba(15, 52, 96, 0.6)) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Main Container */
+main {
+    flex: 1;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .glass-card {
+        border-radius: 15px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+/* Animation for alerts */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Text colors */
+.text-muted {
+    color: #95a5a6 !important;
+}
+
+.text-secondary {
+    color: #7f8c8d !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Cursor pointer for interactive elements */
+.cursor-pointer {
+    cursor: pointer;
+}
